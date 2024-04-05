@@ -1,23 +1,22 @@
-const express = require("express");
-const { AirplaneController } = require("../../controllers");
-const { AirplaneMiddlewares } = require("../../middlewares");
+const express = require('express');
+const { AirplaneController } = require('../../controllers');
+const { AirplaneMiddlewares } = require('../../middlewares');
 
 const router = express.Router();
 
 // /api/v1/airplanes - POST
-router.post("/", 
+router.post('/', 
     AirplaneMiddlewares.validateCreateRequest, AirplaneController.createAirplane);
 
 // /api/v1/airplanes - GET
-router.get("/", AirplaneController.getAirplanes);
+router.get('/', AirplaneController.getAirplanes);
 
-// /api/v1/airplanes/:id - GET
-router.get("/:id", AirplaneController.getAirplane);
+router.get('/:id', AirplaneController.getAirplane);
 
 // /api/v1/airplanes/:id - DELETE
-router.delete("/:id", AirplaneController.destroyAirplane);
+router.delete('/:id', AirplaneController.destroyAirplane);
 
 // /api/v1/airplanes/:id - PATCH
-router.patch("/:id", AirplaneController.patchAirplane);
+router.patch('/:id', AirplaneController.patchAirplane);
 
 module.exports = router;

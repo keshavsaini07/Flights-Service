@@ -15,15 +15,15 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert("Airplanes", [
+    await queryInterface.bulkInsert('Airplanes', [
       {
-        modelNumber: "airbus340",
+        modelNumber: 'airbus340',
         capacity: 900,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        modelNumber: "boeing777",
+        modelNumber: 'boeing777',
         capacity: 450,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -41,8 +41,8 @@ module.exports = {
      * The second parameter is not important
      * And if in the object parameter you pass an empty object then all the entries in the table will get deleted.
      */
-    await queryInterface.bulkDelete("Airplanes", {
-      [Op.or]: [{ modelNumber: "airbus340" }, { modelNumber: "boeing777" }],
+    await queryInterface.bulkDelete('Airplanes', {
+      [Op.or]: [{ modelNumber: 'airbus340' }, { modelNumber: 'boeing777' }],
     });
   }
 };

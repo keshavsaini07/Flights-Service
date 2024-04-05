@@ -1,5 +1,5 @@
 const { Logger } = require('../config');
-const { StatusCodes } = require("http-status-codes");
+const { StatusCodes } = require('http-status-codes');
 const AppError = require('../utils/errors/app-error');
  
 class CrudRepository {
@@ -22,7 +22,7 @@ class CrudRepository {
          console.log(response);
         if (!response) {
           throw new AppError(
-            "Not able to find the resource",
+            'Not able to find the resource',
             StatusCodes.NOT_FOUND
           );
         }
@@ -51,7 +51,7 @@ class CrudRepository {
         console.log(response)
         if (!response[0]) {
            throw new AppError(
-             "Not able to find the resource",
+             'Not able to find the resource',
              StatusCodes.NOT_FOUND
            );
         }

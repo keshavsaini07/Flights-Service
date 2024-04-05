@@ -1,5 +1,5 @@
 const { AirplaneService } = require('../services');
-const { StatusCodes } = require("http-status-codes");
+const { StatusCodes } = require('http-status-codes');
 const { ErrorResponse, SuccessResponse } = require('../utils/common');
 
 /*

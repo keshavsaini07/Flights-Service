@@ -1,6 +1,6 @@
-const { CityService } = require("../services");
-const { StatusCodes } = require("http-status-codes");
-const { ErrorResponse, SuccessResponse } = require("../utils/common");
+const { CityService } = require('../services');
+const { StatusCodes } = require('http-status-codes');
+const { ErrorResponse, SuccessResponse } = require('../utils/common');
 
 /*
  * POST : /cities
