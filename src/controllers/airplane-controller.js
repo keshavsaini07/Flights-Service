@@ -65,9 +65,30 @@ async function destroyAirplane(req, res) {
   }
 }
 
+/*
+* PATCH (PARTIAL UPDATE) : /airplanes/:id
+* req-body {}
+*/ 
+async function patchAirplane(req, res) {
+  try {
+    // console.log(req.body);
+    // console.log(req.params.id);
+    const airplane = await AirplaneService.patchAirplane(
+      req.params.id,
+      req.body
+    );
+    SuccessResponse.data = airplane;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+
 module.exports = {
   createAirplane,
   getAirplanes,
   getAirplane,
-  destroyAirplane
+  destroyAirplane,
+  patchAirplane
 };
