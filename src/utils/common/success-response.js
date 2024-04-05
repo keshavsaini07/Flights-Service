@@ -1,6 +1,6 @@
 const success = {
   success: true,
-  message: "Successfully created an airplane",
+  message: "Successfully completed the request",
   data: {},
   error: {},
 };
