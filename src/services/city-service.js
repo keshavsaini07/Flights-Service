@@ -25,6 +25,53 @@ async function createCity(data){
     }
 }
 
+async function deleteCity(id) {
+  try {
+    const city = await cityRepository.destroy(id);
+    return city;
+  } catch (error) {
+    if (error.statusCode == StatusCodes.NOT_FOUND) {
+      throw new AppError(
+        "The city requested to delete is not present.",
+        error.statusCode
+      );
+    }
+    throw new AppError(
+      "Cannot fetch data of the city",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
+async function updateCity(id, data) {
+  try {
+    console.log(data)
+    const city = await cityRepository.update(id, data);
+    return city;
+  } catch (error) {
+    console.log(error)
+    if (error.statusCode == StatusCodes.NOT_FOUND) {
+      throw new AppError(
+        "The city requested to update is not present.",
+        error.statusCode
+      );
+    }
+    if (error.name == "SequelizeValidationError") {
+      let explanation = [];
+      error.errors.forEach((err) => {
+        explanation.push(err.message);
+      });
+      throw new AppError(explanation, StatusCodes.BAD_REQUEST);
+    }
+    throw new AppError(
+      "Cannot fetch data of the city",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 module.exports = {
   createCity,
+  deleteCity,
+  updateCity
 };

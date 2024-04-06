@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.use('/airplanes', airplaneRoutes);
 
-router.use('/cities', cityRoute);
+router.use('/cities', cityRoutes);
 
 router.get('/info', InfoController.info);
 

@@ -71,8 +71,6 @@ async function destroyAirplane(req, res) {
 */ 
 async function patchAirplane(req, res) {
   try {
-    // console.log(req.body);
-    // console.log(req.params.id);
     const airplane = await AirplaneService.patchAirplane(
       req.params.id,
       req.body

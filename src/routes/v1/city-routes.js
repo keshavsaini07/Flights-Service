@@ -8,4 +8,14 @@ const router = express.Router();
 router.post('/', CityMiddlewares.validateCreateRequest, 
   CityController.createCity);
 
+// /api/v1/cities/:id - DELETE
+router.delete('/:id', CityController.deleteCity);
+
+// /api/v1/airplanes/:id - PATCH
+router.patch(
+  '/:id',
+  CityMiddlewares.validateCreateRequest,
+  CityController.updateCity
+);
+
 module.exports = router;
