@@ -45,18 +45,16 @@ async function deleteCity(id) {
 
 async function updateCity(id, data) {
   try {
-    console.log(data)
     const city = await cityRepository.update(id, data);
     return city;
   } catch (error) {
-    console.log(error)
     if (error.statusCode == StatusCodes.NOT_FOUND) {
       throw new AppError(
-        "The city requested to update is not present.",
+        'The city requested to update is not present.',
         error.statusCode
       );
     }
-    if (error.name == "SequelizeValidationError") {
+    if (error.name == 'SequelizeValidationError') {
       let explanation = [];
       error.errors.forEach((err) => {
         explanation.push(err.message);
@@ -64,7 +62,7 @@ async function updateCity(id, data) {
       throw new AppError(explanation, StatusCodes.BAD_REQUEST);
     }
     throw new AppError(
-      "Cannot fetch data of the city",
+      'Cannot fetch data of the city',
       StatusCodes.INTERNAL_SERVER_ERROR
     );
   }

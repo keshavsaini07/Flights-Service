@@ -6,7 +6,7 @@ const router = express.Router();
 
 // /api/v1/airplanes - POST
 router.post('/', 
-    AirplaneMiddlewares.validateCreateRequest, AirplaneController.createAirplane);
+    AirplaneMiddlewares.validateRequest, AirplaneController.createAirplane);
 
 // /api/v1/airplanes - GET
 router.get('/', AirplaneController.getAirplanes);
@@ -17,7 +17,10 @@ router.get('/:id', AirplaneController.getAirplane);
 router.delete('/:id', AirplaneController.destroyAirplane);
 
 // /api/v1/airplanes/:id - PATCH
-router.patch('/:id', 
-    AirplaneController.patchAirplane);
+router.patch(
+  "/:id",
+  AirplaneMiddlewares.validateRequest,
+  AirplaneController.patchAirplane
+);
 
 module.exports = router;

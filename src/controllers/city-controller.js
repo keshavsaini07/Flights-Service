@@ -35,7 +35,7 @@ async function deleteCity(req, res) {
 }
 /*
 * PATCH (PARTIAL UPDATE) : /airplanes/:id
-* req-body {}
+* req-body {name : LONDON}
 */ 
 async function updateCity(req, res) {
   try {
