@@ -4,7 +4,7 @@ const { ErrorResponse, SuccessResponse } = require('../utils/common');
 
 /*
 * POST : /airplanes
-* req-body { modelNumebr: 'airbus320', capacity: 200}
+* req-body { modelNumber: 'airbus320', capacity: 200}
 */
 async function createAirplane(req, res) {
     try {
@@ -21,8 +21,8 @@ async function createAirplane(req, res) {
 }
 
 /*
-* GET : /airplanes/:id
-* req-body { modelNumebr: 'airbus320', capacity: 200}
+* GET : /airplanes
+* req-body {}
 */ 
 async function getAirplanes(req, res) {
   try {
@@ -37,7 +37,7 @@ async function getAirplanes(req, res) {
 
 /*
 * GET : /airplanes/:id
-* req-body { modelNumebr: 'airbus320', capacity: 200}
+* req-body {}
 */ 
 async function getAirplane(req, res) {
   try {
