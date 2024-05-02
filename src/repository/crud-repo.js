@@ -48,7 +48,7 @@ class CrudRepository {
                 id: id
             }
         });
-        console.log(response)
+        console.log(response);
         if (!response[0]) {
            throw new AppError(
              'Not able to find the resource',
